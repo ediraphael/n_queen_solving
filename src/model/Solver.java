@@ -2,6 +2,35 @@ package model;
 
 public class Solver
 {
+	private Chess chess;
+	private AbstractResearch research;
+
+	public Solver(Chess chess, AbstractResearch research)
+	{
+		this.chess = chess;
+		this.research = research;
+	}
+
+	public Chess getChess()
+	{
+		return chess;
+	}
+
+	public void setChess(Chess chess)
+	{
+		this.chess = chess;
+	}
+
+	public AbstractResearch getResearch()
+	{
+		return research;
+	}
+
+	public void setResearch(AbstractResearch research)
+	{
+		this.research = research;
+	}
+
 	public static void main(String[] args) throws ChessExeption
 	{
 		Chess chess = new Chess(5);
