@@ -55,8 +55,7 @@ public class Chess
 	}
 
 	/**
-	 * Function to check if the linear position of queens are good. Mean if
-	 * their are not more than one queen on the same line or column.
+	 * Function to check if the linear position of queens are good. Mean if their are not more than one queen on the same line or column.
 	 * 
 	 * @return true if it's correct, false either
 	 */
@@ -117,10 +116,7 @@ public class Chess
 	}
 
 	/**
-	 * Set the position of a queen, the first parameters is for the line number,
-	 * this one can't be under one. For the first line, set line number to 1.
-	 * The second parameters is the column position. Set the column position to
-	 * 0 to unset the queen in the line.
+	 * Set the position of a queen, the first parameters is for the line number, this one can't be under one. For the first line, set line number to 1. The second parameters is the column position. Set the column position to 0 to unset the queen in the line.
 	 * 
 	 * @param line
 	 * @param column

@@ -8,8 +8,7 @@ public class LocalResearch extends AbstractResearch
 		// first, check if there is something to do
 		if (!chess.checkGeneralConsistency())
 		{
-			// Then, if there is conflict, find, the queen who got the most
-			// conflict
+			// Then, if there is conflict, find, the queen who got the most conflict
 			int lineOfMaxQueenConflict = 0;
 			int maxQueenConflict = 0;
 			int tempQueenConflict = 0;
