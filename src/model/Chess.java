@@ -29,7 +29,7 @@ public class Chess
 	public boolean checkLinearConsistency()
 	{
 		// Initialyse a occurency count
-		int[] columnOccurency = new int[sizeOfChess+1];
+		int[] columnOccurency = new int[sizeOfChess + 1];
 		for (int i = 0; i < this.sizeOfChess; i++)
 		{
 			columnOccurency[i] = 0;
@@ -63,7 +63,7 @@ public class Chess
 		{
 			for (int j = i + 1; j < this.sizeOfChess; j++)
 			{
-				if (this.queenPosition[i] == this.queenPosition[j] && this.queenPosition[i]!=0)
+				if ((this.queenPosition[i] == (this.queenPosition[j] + (j - i)) || this.queenPosition[i] == (this.queenPosition[j] + (i - j))) && this.queenPosition[i] != 0 && this.queenPosition[j] != 0)
 				{
 					return false;
 				}
@@ -146,7 +146,7 @@ public class Chess
 
 			for (int j = 0; j < sizeOfChess; j++)
 			{
-				if (this.queenPosition[i] == j+1)
+				if (this.queenPosition[i] == j + 1)
 				{
 					text.append("| X ");
 				} else
