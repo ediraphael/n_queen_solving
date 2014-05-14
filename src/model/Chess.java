@@ -132,4 +132,35 @@ public class Chess
 		this.queenPosition = queenPosition;
 	}
 
+	@Override
+	public String toString()
+	{
+		StringBuilder text = new StringBuilder();
+		for (int i = 0; i < sizeOfChess; i++)
+		{
+			for (int j = 0; j < sizeOfChess; j++)
+			{
+				text.append("+---");
+			}
+			text.append("+\n");
+
+			for (int j = 0; j < sizeOfChess; j++)
+			{
+				if (this.queenPosition[i] == j+1)
+				{
+					text.append("| X ");
+				} else
+				{
+					text.append("|   ");
+				}
+			}
+			text.append("|\n");
+		}
+		for (int j = 0; j < sizeOfChess; j++)
+		{
+			text.append("+---");
+		}
+		text.append("+\n");
+		return text.toString();
+	}
 }
