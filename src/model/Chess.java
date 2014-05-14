@@ -29,7 +29,7 @@ public class Chess
 	public boolean checkLinearConsistency()
 	{
 		// Initialyse a occurency count
-		int[] columnOccurency = new int[sizeOfChess];
+		int[] columnOccurency = new int[sizeOfChess+1];
 		for (int i = 0; i < this.sizeOfChess; i++)
 		{
 			columnOccurency[i] = 0;
@@ -41,7 +41,7 @@ public class Chess
 		}
 
 		// Check the occurency of position, except 0
-		for (int i = 0; i < this.sizeOfChess; i++)
+		for (int i = 1; i < this.sizeOfChess; i++)
 		{
 			if (columnOccurency[i] > 1)
 			{
@@ -63,7 +63,7 @@ public class Chess
 		{
 			for (int j = i + 1; j < this.sizeOfChess; j++)
 			{
-				if (this.queenPosition[i] == this.queenPosition[j])
+				if (this.queenPosition[i] == this.queenPosition[j] && this.queenPosition[i]!=0)
 				{
 					return false;
 				}

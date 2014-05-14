@@ -6,7 +6,9 @@ public class Solver
 	{
 		Chess chess = new Chess(4);
 		chess.setQueenPosition(1, 4);
-		chess.setQueenPosition(2, 4);
+		chess.setQueenPosition(2, 2);
 		System.out.println(chess);
+		System.out.println(chess.checkLinearConsistency());
+		System.out.println(chess.checkGeneralConsistency());
 	}
 }
