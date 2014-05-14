@@ -11,13 +11,14 @@ public class Chess
 		this.queenPosition = new int[sizeOfChess];
 		for (int i = 0; i < queenPosition.length; i++)
 		{
-			queenPosition[i] = 0;
+			queenPosition[i] = 1;
 		}
 	}
 
 	public Chess(int[] queenPosition)
 	{
 		this.queenPosition = queenPosition;
+		this.sizeOfChess = queenPosition.length;
 	}
 
 	public int checkNbGeneralConflict(int line)
@@ -63,7 +64,7 @@ public class Chess
 	{
 		// Initialyse a occurency count
 		int[] columnOccurency = new int[sizeOfChess + 1];
-		for (int i = 0; i < this.sizeOfChess; i++)
+		for (int i = 0; i < this.sizeOfChess + 1; i++)
 		{
 			columnOccurency[i] = 0;
 		}
@@ -72,9 +73,8 @@ public class Chess
 		{
 			columnOccurency[this.queenPosition[i]]++;
 		}
-
 		// Check the occurency of position, except 0
-		for (int i = 1; i < this.sizeOfChess; i++)
+		for (int i = 1; i < this.sizeOfChess + 1; i++)
 		{
 			if (columnOccurency[i] > 1)
 			{
