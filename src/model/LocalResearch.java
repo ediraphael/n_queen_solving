@@ -84,8 +84,6 @@ public class LocalResearch extends AbstractResearch
 		System.out.println("fin");
 		if (chess.checkGeneralConsistency())
 		{
-			// So we store it
-
 			System.out.println(chess);
 			System.out.println("Nb mouvement effectué :" + nbMouvement);
 			System.out.println("Trouvé!");
