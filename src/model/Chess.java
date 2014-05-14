@@ -20,6 +20,40 @@ public class Chess
 		this.queenPosition = queenPosition;
 	}
 
+	public int checkNbGeneralConflict(int line)
+	{
+		return checkNbDiagonalConflict(line) + checkNbLineConflict(line);
+	}
+
+	public int checkNbDiagonalConflict(int line)
+	{
+		int nbConflict = 0;
+		// Count the occurency of position
+		line--;
+		for (int i = 0; i < this.sizeOfChess; i++)
+		{
+			if ((this.queenPosition[i] == (this.queenPosition[line] + (line - i)) || this.queenPosition[i] == (this.queenPosition[line] + (i - line))) && this.queenPosition[i] != 0 && this.queenPosition[line] != 0 && line != i)
+			{
+				nbConflict++;
+			}
+		}
+		return nbConflict;
+	}
+
+	public int checkNbLineConflict(int line)
+	{
+		int nbConflict = 0;
+		// Count the occurency of position
+		for (int i = 0; i < this.sizeOfChess; i++)
+		{
+			if (i != (line - 1) && this.queenPosition[i] == this.queenPosition[line - 1])
+			{
+				nbConflict++;
+			}
+		}
+		return nbConflict;
+	}
+
 	/**
 	 * Function to check if the linear position of queens are good. Mean if
 	 * their are not more than one queen on the same line or column.
@@ -34,7 +68,7 @@ public class Chess
 		{
 			columnOccurency[i] = 0;
 		}
-		// Count the occurency of positition
+		// Count the occurency of position
 		for (int i = 0; i < this.sizeOfChess; i++)
 		{
 			columnOccurency[this.queenPosition[i]]++;
