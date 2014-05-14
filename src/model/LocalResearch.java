@@ -14,13 +14,16 @@ public class LocalResearch extends AbstractResearch
 		while (!chess.checkGeneralConsistency() && lastLineMoved != 0)
 		{
 			//if there is conflict, find, the queen who got the most conflict
+			//First initialyse variable
 			int lineOfMaxQueenConflict = 0;
 			int positionOfMaxQueenConflict = 0;
 			int maxQueenConflict = 0;
 			int tempQueenConflict = 0;
+			//look over all lines of the chess and fine the one who have the most conflict
 			for (int i = 1; i <= chess.getSizeOfChess(); i++)
 			{
 				tempQueenConflict = chess.checkNbGeneralConflict(i);
+				//If there is more conflict and the line is not in the past line conflict
 				if (tempQueenConflict > maxQueenConflict && i != lastLineMoved && !lastLinesMoved.contains(i))
 				{
 					maxQueenConflict = tempQueenConflict;
@@ -28,14 +31,18 @@ public class LocalResearch extends AbstractResearch
 					positionOfMaxQueenConflict = chess.getQueenPosition()[i - 1];
 				}
 			}
+			//If we haven't find a line to change
 			if (lineOfMaxQueenConflict == 0)
 			{
+				//we search for a random line
 				Random random = new Random();
 				lineOfMaxQueenConflict = random.nextInt(chess.getSizeOfChess()) + 1;
 				positionOfMaxQueenConflict = chess.getQueenPosition()[lineOfMaxQueenConflict - 1];
 				maxQueenConflict = chess.getSizeOfChess();
 				lastLineMoved = lineOfMaxQueenConflict;
 				lastLinesMoved.add(lineOfMaxQueenConflict);
+				//If there is no more last move than the size of the chess
+				//Instead that's mean we have no solution
 				if (lastLinesMoved.size() >= chess.getSizeOfChess())
 				{
 					lastLineMoved = 0;
