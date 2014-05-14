@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Solver
 {
 	private Chess chess;
@@ -9,6 +11,16 @@ public class Solver
 	{
 		this.chess = chess;
 		this.research = research;
+	}
+
+	public void solve()
+	{
+		this.research.research();
+	}
+
+	public ArrayList<Chess> getSolutions()
+	{
+		return this.research.getSolutions();
 	}
 
 	public Chess getChess()
