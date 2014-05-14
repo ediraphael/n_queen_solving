@@ -21,6 +21,38 @@ public class Chess
 	}
 
 	/**
+	 * Function to check if the linear position of queens are good. Mean if
+	 * their are not more than one queen on the same line or column.
+	 * 
+	 * @return true if it's correct, false either
+	 */
+	public boolean checkLinearconsistency()
+	{
+		// Initialyse a occurency count
+		int[] columnOccurency = new int[sizeOfChess];
+		for (int i = 0; i < this.sizeOfChess; i++)
+		{
+			columnOccurency[i] = 0;
+		}
+		// Count the occurency of positition
+		for (int i = 0; i < this.sizeOfChess; i++)
+		{
+			columnOccurency[this.queenPosition[i]]++;
+		}
+
+		// Check the occurency of position, except 0
+		for (int i = 0; i < this.sizeOfChess; i++)
+		{
+			if(columnOccurency[i]>1)
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	/**
 	 * Set the position of a queen, the first parameters is for the line number,
 	 * this one can't be under one. For the first line, set line number to 1.
 	 * The second parameters is the column position. Set the column position to
@@ -28,9 +60,9 @@ public class Chess
 	 * 
 	 * @param line
 	 * @param column
-	 * @throws Exception
+	 * @throws ChessExeption
 	 */
-	public void setQueenPosition(int line, int column) throws Exception
+	public void setQueenPosition(int line, int column) throws ChessExeption
 	{
 		if (line > this.sizeOfChess)
 		{
