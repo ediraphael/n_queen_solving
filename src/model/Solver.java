@@ -15,7 +15,7 @@ public class Solver
 
 	public void solve()
 	{
-		this.research.research();
+		this.research.research(this.chess);
 	}
 
 	public ArrayList<Chess> getSolutions()

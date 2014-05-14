@@ -16,7 +16,7 @@ public abstract class AbstractResearch
 		this.solutions = solutions;
 	}
 	
-	public abstract void research();
+	public abstract void research(Chess chess);
 
 	public ArrayList<Chess> getSolutions()
 	{
