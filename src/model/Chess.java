@@ -43,7 +43,7 @@ public class Chess
 		// Check the occurency of position, except 0
 		for (int i = 0; i < this.sizeOfChess; i++)
 		{
-			if(columnOccurency[i]>1)
+			if (columnOccurency[i] > 1)
 			{
 				return false;
 			}
