@@ -164,6 +164,7 @@ public class Chess
 	public void setQueenPosition(int[] queenPosition)
 	{
 		this.queenPosition = queenPosition;
+		this.sizeOfChess = queenPosition.length;
 	}
 
 	@Override
