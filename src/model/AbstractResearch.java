@@ -15,8 +15,13 @@ public abstract class AbstractResearch
 	{
 		this.solutions = solutions;
 	}
-	
+
 	public abstract void research(Chess chess);
+
+	public boolean addSolution(Chess chess)
+	{
+		return this.solutions.add(chess);
+	}
 
 	public ArrayList<Chess> getSolutions()
 	{
