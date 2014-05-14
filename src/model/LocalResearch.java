@@ -13,7 +13,7 @@ public class LocalResearch extends AbstractResearch
 		ArrayList<Integer> lastLinesMoved = new ArrayList<Integer>();
 		while (!chess.checkGeneralConsistency() && lastLineMoved != 0)
 		{
-			// Then, if there is conflict, find, the queen who got the most conflict
+			//if there is conflict, find, the queen who got the most conflict
 			int lineOfMaxQueenConflict = 0;
 			int positionOfMaxQueenConflict = 0;
 			int maxQueenConflict = 0;
