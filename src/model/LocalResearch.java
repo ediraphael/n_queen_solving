@@ -62,10 +62,11 @@ public class LocalResearch extends AbstractResearch
 						int nbConflict = chess.checkNbGeneralConflict(lineOfMaxQueenConflict);
 						if (nbConflict < maxQueenConflict)
 						{
+							nbMouvement++;
 							lastLinesMoved.clear();
-							//System.out.println(chess);
+							// System.out.println(chess);
 
-							//System.out.println("no Conflif:" + chess.checkGeneralConsistency());
+							// System.out.println("no Conflif:" + chess.checkGeneralConsistency());
 							maxQueenConflict = nbConflict;
 							savedPosition = i;
 						}
@@ -86,7 +87,8 @@ public class LocalResearch extends AbstractResearch
 			// So we store it
 
 			System.out.println(chess);
-			System.out.println("Trouvé");
+			System.out.println("Nb mouvement effectué :" + nbMouvement);
+			System.out.println("Trouvé!");
 			this.addSolution(chess);
 		} else
 		{

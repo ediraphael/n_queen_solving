@@ -45,13 +45,13 @@ public class Solver
 
 	public static void main(String[] args) throws ChessExeption
 	{
-		Chess chess = new Chess(1000);
+		Chess chess = new Chess(100);
 		//chess.setQueenPosition(1, 1);
 		//chess.setQueenPosition(2, 3);
 		//chess.setQueenPosition(3, 5);
 		//chess.setQueenPosition(4, 2);
 		//chess.setQueenPosition(5, 1);
-		System.out.println(chess);
+		//System.out.println(chess);
 		Solver solver = new Solver(chess, new LocalResearch());
 		long start = System.currentTimeMillis();
 		solver.solve();
