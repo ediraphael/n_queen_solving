@@ -45,14 +45,17 @@ public class Solver
 
 	public static void main(String[] args) throws ChessExeption
 	{
-		Chess chess = new Chess(5);
-		chess.setQueenPosition(1, 1);
-		chess.setQueenPosition(2, 1);
-		chess.setQueenPosition(3, 1);
-		chess.setQueenPosition(4, 1);
-		chess.setQueenPosition(5, 1);
+		Chess chess = new Chess(1000);
+		//chess.setQueenPosition(1, 1);
+		//chess.setQueenPosition(2, 3);
+		//chess.setQueenPosition(3, 5);
+		//chess.setQueenPosition(4, 2);
+		//chess.setQueenPosition(5, 1);
 		System.out.println(chess);
 		Solver solver = new Solver(chess, new LocalResearch());
+		long start = System.currentTimeMillis();
 		solver.solve();
+		long end = System.currentTimeMillis();
+		System.out.println("Durée de calcul : " + ((float) (end - start)) / 1000 + "s");
 	}
 }
