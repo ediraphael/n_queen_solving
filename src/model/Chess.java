@@ -26,7 +26,7 @@ public class Chess
 	 * 
 	 * @return true if it's correct, false either
 	 */
-	public boolean checkLinearconsistency()
+	public boolean checkLinearConsistency()
 	{
 		// Initialyse a occurency count
 		int[] columnOccurency = new int[sizeOfChess];
@@ -50,6 +50,36 @@ public class Chess
 		}
 
 		return true;
+	}
+
+	/**
+	 * Function to check if queens are not in conflict by diagonal
+	 * 
+	 * @return true if it's correct, false either
+	 */
+	public boolean checkDiagonalConsistency()
+	{
+		for (int i = 0; i < this.sizeOfChess; i++)
+		{
+			for (int j = i + 1; j < this.sizeOfChess; j++)
+			{
+				if (this.queenPosition[i] == this.queenPosition[j])
+				{
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Function to test if queens position are not in conflict
+	 * 
+	 * @return true if it's correct, false either
+	 */
+	public boolean checkGeneralConsistency()
+	{
+		return this.checkLinearConsistency() && this.checkDiagonalConsistency();
 	}
 
 	/**
