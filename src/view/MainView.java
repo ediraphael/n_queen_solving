@@ -27,8 +27,6 @@ import java.awt.Color;
 
 import javax.swing.JTextField;
 
-import model.Chess;
-import algo.LocalResearch;
 import algo.Solver;
 
 public class MainView 
@@ -118,7 +116,7 @@ public class MainView
 	
 	private JScrollPane scrollPane;
 	
-	private JTextArea textArea;
+	private JTextArea textAreaResult;
 	
 	
 	/**
@@ -212,9 +210,10 @@ public class MainView
 		scrollPane = new JScrollPane();
 		hbResultContainer.add(scrollPane);
 		
-		textArea = new JTextArea();
-		textArea.setEditable(false);
-		scrollPane.setViewportView(textArea);
+		textAreaResult = new JTextArea();
+		textAreaResult.setFont(new Font("Courier New", Font.PLAIN, 12));
+		textAreaResult.setEditable(false);
+		scrollPane.setViewportView(textAreaResult);
 		
 		hbAction = Box.createHorizontalBox();
 		hbAction.setPreferredSize(new Dimension(0, 100));
@@ -271,13 +270,12 @@ public class MainView
 				}
 				else
 				{
-					Chess chess = new Chess(Integer.parseInt(textFieldNbDame.getText()));
-					Solver solver = new Solver(chess, new LocalResearch());
+					Solver solver = new Solver(Integer.parseInt(textFieldNbDame.getText()));
 					long start = System.currentTimeMillis();
 					solver.solve();
 					long end = System.currentTimeMillis();
 					lblTpsAlgo.setText("Temps d'execution de l'algorithme : " + (end - start)  + "ms");
-					
+					textAreaResult.setText(solver.showResult());
 				}
 			}
 		});

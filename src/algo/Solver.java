@@ -9,10 +9,10 @@ public class Solver
 	private Chess chess;
 	private LocalResearch research;
 
-	public Solver(Chess chess, LocalResearch research)
+	public Solver(int nbDames)
 	{
-		this.chess = chess;
-		this.research = research;
+		this.chess = new Chess(nbDames);
+		this.research = new LocalResearch();
 	}
 
 	public void solve()
@@ -20,6 +20,12 @@ public class Solver
 		this.research.research(this.chess);
 	}
 
+	public String showResult()
+	{
+		return this.research.getSearchResult();
+	}
+	
+	
 	public ArrayList<Chess> getSolutions()
 	{
 		return this.research.getSolutions();

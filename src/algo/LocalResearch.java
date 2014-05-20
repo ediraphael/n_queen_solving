@@ -9,9 +9,12 @@ import exception.ChessExeption;
 public class LocalResearch 
 {
 	private ArrayList<Chess> solutions = new ArrayList<Chess>();
-	
+	private String searchResult;
+
+
 	public void research(Chess chess)
 	{
+		searchResult="";
 		int nbMouvement = 0;
 		int lastLineMoved = -1;
 		ArrayList<Integer> lastLinesMoved = new ArrayList<Integer>();
@@ -59,8 +62,10 @@ public class LocalResearch
 
 			// For the finded queen, we will explore all the other solution possible
 			int savedPosition = positionOfMaxQueenConflict;
-			System.out.println(lineOfMaxQueenConflict);
-			System.out.println(lastLinesMoved);
+			//System.out.println(lineOfMaxQueenConflict);
+			//System.out.println(lastLinesMoved);
+			searchResult+="Tour n°"+lineOfMaxQueenConflict+" : ";
+			searchResult+=lastLinesMoved+"\n";
 			// Then we generate other position for the queen
 			try
 			{
@@ -75,9 +80,6 @@ public class LocalResearch
 						{
 							nbMouvement++;
 							lastLinesMoved.clear();
-							// System.out.println(chess);
-
-							// System.out.println("no Conflif:" + chess.checkGeneralConsistency());
 							maxQueenConflict = nbConflict;
 							savedPosition = i;
 						}
@@ -89,22 +91,27 @@ public class LocalResearch
 				}
 			} catch (ChessExeption e)
 			{
-				// System.err.println(e.getMessage());
+				System.err.println(e.getMessage());
 			}
 		}// That mean we have a solution
-		System.out.println("fin");
+		//System.out.println("fin");
 		if (chess.checkGeneralConsistency())
 		{
-			System.out.println(chess);
-			System.out.println("Nb mouvement effectué :" + nbMouvement);
-			System.out.println("Trouvé!");
+			//System.out.println(chess);
+			searchResult+="\n\n"+chess;
+			searchResult+="\n\nNombre de mouvements effectués : " + nbMouvement;
+			//searchResult+="\nSolution trouvée";
+			//System.out.println("Nombre de mouvements effectués : " + nbMouvement);
+			//System.out.println("Solution trouvée");
 			this.addSolution(chess);
 		} else
 		{
-			System.out.println("Pas de solution trouvée");
+			//System.out.println("Aucune solution trouvée");
+			searchResult+="\nAucune solution trouvée";
 		}
 	}
 
+	
 	public boolean addSolution(Chess chess)
 	{
 		return this.solutions.add(chess);
@@ -118,5 +125,15 @@ public class LocalResearch
 	public void setSolutions(ArrayList<Chess> solutions)
 	{
 		this.solutions = solutions;
+	}
+
+	public String getSearchResult() 
+	{
+		return searchResult;
+	}
+
+	public void setSearchResult(String searchResult) 
+	{
+		this.searchResult = searchResult;
 	}
 }
