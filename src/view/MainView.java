@@ -27,6 +27,10 @@ import java.awt.Color;
 
 import javax.swing.JTextField;
 
+import model.Chess;
+import algo.LocalResearch;
+import algo.Solver;
+
 public class MainView 
 {
 
@@ -156,6 +160,7 @@ public class MainView
 		frame.setBounds(100, 100, 800, 450);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		frame.setTitle("EZ Solveur N-Dames");
 		
 		mainPanel = new JPanel();
 		frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
@@ -260,10 +265,19 @@ public class MainView
 				{
 					JOptionPane.showMessageDialog(frame,"Les champs de saisie ne doivent contenir que des chiffres");
 				}
+				else if("".equals(textFieldNbDame.getText()))
+				{
+					JOptionPane.showMessageDialog(frame,"Veuillez saisir le nombre de dames");
+				}
 				else
 				{
-					JOptionPane.showMessageDialog(frame,"Algo en cours de réalisation");
-					//TODO lancer algo
+					Chess chess = new Chess(Integer.parseInt(textFieldNbDame.getText()));
+					Solver solver = new Solver(chess, new LocalResearch());
+					long start = System.currentTimeMillis();
+					solver.solve();
+					long end = System.currentTimeMillis();
+					lblTpsAlgo.setText("Temps d'execution de l'algorithme : " + (end - start)  + "ms");
+					
 				}
 			}
 		});

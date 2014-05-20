@@ -1,11 +1,15 @@
-package model;
+package algo;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class LocalResearch extends AbstractResearch
+import model.Chess;
+import exception.ChessExeption;
+
+public class LocalResearch 
 {
-	@Override
+	private ArrayList<Chess> solutions = new ArrayList<Chess>();
+	
 	public void research(Chess chess)
 	{
 		int nbMouvement = 0;
@@ -99,5 +103,20 @@ public class LocalResearch extends AbstractResearch
 		{
 			System.out.println("Pas de solution trouvée");
 		}
+	}
+
+	public boolean addSolution(Chess chess)
+	{
+		return this.solutions.add(chess);
+	}
+
+	public ArrayList<Chess> getSolutions()
+	{
+		return solutions;
+	}
+
+	public void setSolutions(ArrayList<Chess> solutions)
+	{
+		this.solutions = solutions;
 	}
 }

@@ -1,5 +1,7 @@
 package model;
 
+import exception.ChessExeption;
+
 public class Chess
 {
 	private int[] queenPosition;
