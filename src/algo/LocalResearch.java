@@ -64,8 +64,8 @@ public class LocalResearch
 			int savedPosition = positionOfMaxQueenConflict;
 			//System.out.println(lineOfMaxQueenConflict);
 			//System.out.println(lastLinesMoved);
-			searchResult+="Tour n°"+lineOfMaxQueenConflict+" : ";
-			searchResult+=lastLinesMoved+"\n";
+			//searchResult+="Mouvement n°"+lineOfMaxQueenConflict+" : ";
+			//searchResult+=lastLinesMoved+"\n";
 			// Then we generate other position for the queen
 			try
 			{
