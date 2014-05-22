@@ -54,23 +54,11 @@ public class MainView
 	private JPanel panNbDaMeSeparatorLeftSetting;
 	private JPanel panNbDameSeparatorRightSetting;
 	private JPanel panTextFieldChoiceNbDame;
-	private JPanel panChoiceNbResult;
 	private JPanel mainPanTopSetting;
 	private JPanel mainPanRightSetting;
 	private JPanel mainPanLeftSetting;
-	private JPanel panNbResult;
-	private JPanel panNbResultLeftSetting;
-	private JPanel panNbResultSeparator;
-	private JPanel panAcSeparatorLeftSetting;
-	private JPanel panAlcSeparatorRightSetting;
-	private JPanel panNbResultTextFieldLeftSetting;
-	private JPanel panNbResultTextFieldContainer;
 	private JPanel panelTimeExecution;
-	private JPanel panTextFieldChoiceNbResult;
 	private JPanel panTopSettingNbDame;
-	private JPanel panNbResultTopSetting;
-	private JPanel panNbResultLowSetting;
-	private JPanel panNbResultRightSetting;
 
 	private Box vbLeftSettingExit;
 	private Box vbRightSettingExit;
@@ -96,23 +84,18 @@ public class MainView
 	private Box hbLowSettingExit;
 	private Box hbContainerExitBtn;
 	private Box hbLowChoiceNbDame;
-	private Box hbTopChoiceNbResult;
-	private Box hbLowChoiceNbResult;
 
 	private JSeparator separatorTop;
 	private JSeparator separatorLow;
 	private JSeparator separatorNbDame;
-	private JSeparator separatorAc;
 	
 	private JButton btnRun;
 	private JButton btnExit;
 
 	private JLabel lblNbDame;
-	private JLabel lblNbResult;
 	private JLabel lblTpsAlgo;
 
 	private JTextField textFieldNbDame;
-	private JTextField textFieldNbResult;
 	
 	private JScrollPane scrollPane;
 	
@@ -260,7 +243,7 @@ public class MainView
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				if(!textFieldNbDame.getText().matches("[0-9]*") || !textFieldNbResult.getText().matches("[0-9]*"))
+				if(!textFieldNbDame.getText().matches("[0-9]*"))
 				{
 					JOptionPane.showMessageDialog(frame,"Les champs de saisie ne doivent contenir que des chiffres");
 				}
@@ -339,7 +322,7 @@ public class MainView
 		panChoice.setLayout(new BorderLayout(0, 0));
 		
 		vbChoiceLeftSetting = Box.createVerticalBox();
-		vbChoiceLeftSetting.setPreferredSize(new Dimension(10, 0));
+		vbChoiceLeftSetting.setPreferredSize(new Dimension(160, 0));
 		panChoice.add(vbChoiceLeftSetting, BorderLayout.WEST);
 		
 		hbChoiceTopSetting = Box.createHorizontalBox();
@@ -417,74 +400,6 @@ public class MainView
 		JPanel panRightSettingNbDame = new JPanel();
 		panRightSettingNbDame.setPreferredSize(new Dimension(15, 10));
 		panTextFieldChoiceNbDame.add(panRightSettingNbDame, BorderLayout.EAST);
-		
-		panChoiceNbResult = new JPanel();
-		panChoiceNbResult.setMaximumSize(new Dimension(300, 10));
-		panChoiceNbResult.setSize(new Dimension(100, 10));
-		panChoiceNbResult.setPreferredSize(new Dimension(320, 10));
-		panChoiceElement.add(panChoiceNbResult, BorderLayout.EAST);
-		panChoiceNbResult.setLayout(new BorderLayout(0, 0));
-		
-		hbTopChoiceNbResult = Box.createHorizontalBox();
-		hbTopChoiceNbResult.setPreferredSize(new Dimension(0, 25));
-		panChoiceNbResult.add(hbTopChoiceNbResult, BorderLayout.NORTH);
-		
-		panNbResult = new JPanel();
-		hbTopChoiceNbResult.add(panNbResult);
-		panNbResult.setLayout(new BorderLayout(0, 0));
-		
-		lblNbResult = new JLabel("Nombre de résultats");
-		panNbResult.add(lblNbResult, BorderLayout.CENTER);
-		
-		panNbResultLeftSetting = new JPanel();
-		panNbResultLeftSetting.setPreferredSize(new Dimension(85, 10));
-		panNbResult.add(panNbResultLeftSetting, BorderLayout.WEST);
-		
-		panNbResultSeparator = new JPanel();
-		panNbResultSeparator.setPreferredSize(new Dimension(10, 2));
-		panNbResult.add(panNbResultSeparator, BorderLayout.SOUTH);
-		panNbResultSeparator.setLayout(new BorderLayout(0, 0));
-		
-		panAcSeparatorLeftSetting = new JPanel();
-		panAcSeparatorLeftSetting.setPreferredSize(new Dimension(15, 0));
-		panNbResultSeparator.add(panAcSeparatorLeftSetting, BorderLayout.WEST);
-		
-		panAlcSeparatorRightSetting = new JPanel();
-		panAlcSeparatorRightSetting.setPreferredSize(new Dimension(15, 0));
-		panNbResultSeparator.add(panAlcSeparatorRightSetting, BorderLayout.EAST);
-		
-		separatorAc = new JSeparator();
-		separatorAc.setMaximumSize(new Dimension(20, 20));
-		panNbResultSeparator.add(separatorAc, BorderLayout.CENTER);
-		
-		hbLowChoiceNbResult = Box.createHorizontalBox();
-		panChoiceNbResult.add(hbLowChoiceNbResult, BorderLayout.CENTER);
-		
-		panTextFieldChoiceNbResult = new JPanel();
-		hbLowChoiceNbResult.add(panTextFieldChoiceNbResult);
-		panTextFieldChoiceNbResult.setLayout(new BorderLayout(0, 0));
-		
-		panNbResultTextFieldLeftSetting = new JPanel();
-		panNbResultTextFieldLeftSetting.setPreferredSize(new Dimension(15, 0));
-		panTextFieldChoiceNbResult.add(panNbResultTextFieldLeftSetting, BorderLayout.WEST);
-
-		panNbResultTextFieldContainer = new JPanel();
-		panTextFieldChoiceNbResult.add(panNbResultTextFieldContainer, BorderLayout.CENTER);
-		panNbResultTextFieldContainer.setLayout(new BorderLayout(0, 0));
-		
-		textFieldNbResult = new JTextField();
-		panNbResultTextFieldContainer.add(textFieldNbResult, BorderLayout.CENTER);
-		textFieldNbResult.setColumns(10);
-		
-		panNbResultTopSetting = new JPanel();
-		panNbResultTextFieldContainer.add(panNbResultTopSetting, BorderLayout.NORTH);
-		
-		panNbResultLowSetting = new JPanel();
-		panNbResultTextFieldContainer.add(panNbResultLowSetting, BorderLayout.SOUTH);
-		
-		panNbResultRightSetting = new JPanel();
-		panNbResultRightSetting.setPreferredSize(new Dimension(15, 10));
-		panNbResultTextFieldContainer.add(panNbResultRightSetting, BorderLayout.EAST);
 
 		mainPanTopSetting = new JPanel();
 		mainPanel.add(mainPanTopSetting, BorderLayout.NORTH);
